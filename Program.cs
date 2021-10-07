@@ -1,4 +1,6 @@
 using CodeCrunch.Services;
+using CodeCrunch.Services.NASA;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -9,6 +11,8 @@ builder.Services.AddSwaggerGen(c =>
     c.SwaggerDoc("v1", new() { Title = "CodeCrunch", Version = "v1" });
 });
 builder.Services.AddSingleton<ITwitterService, TwitterService>();
+builder.Services.AddSingleton<INASAService, NASAService>();
+builder.Services.AddHttpClient();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

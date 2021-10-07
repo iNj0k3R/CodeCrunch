@@ -38,5 +38,10 @@ namespace CodeCrunch.Services
         {
             return _userClient.Search.SearchTweetsAsync(new SearchTweetsParameters($"#{hashtag}") { PageSize = 50 });
         }
+
+        public Task<ITweet[]> GetTweetsByLocationAsync(string hashtag)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

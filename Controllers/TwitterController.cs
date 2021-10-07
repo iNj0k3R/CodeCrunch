@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CodeCrunch.Controllers
 {
-    [Route("[controller]")]
+    [Route("twitter")]
     [ApiController]
     public class TwitterController : ControllerBase
     {
@@ -13,9 +13,8 @@ namespace CodeCrunch.Controllers
             _twitterService = twitterService;
         }
 
-
-        [HttpGet("[action]/{username}")]
-        public async Task<IActionResult> UserAsync(string username)
+        [HttpGet("user/{username}")]
+        public async Task<IActionResult> UserTweetsAsync(string username)
         {
             var user = await _twitterService.GetUserInfoAsync(username);
             var tweets = await _twitterService.GetTweetsByUsernameAsync(username);
@@ -35,8 +34,8 @@ namespace CodeCrunch.Controllers
             return Ok(userTweets);
         }
 
-        [HttpGet("[action]/{hashtag}")]
-        public async Task<IActionResult> HashtagAsync(string hashtag)
+        [HttpGet("hashtag/{hashtag}")]
+        public async Task<IActionResult> SearchHashtagAsync(string hashtag)
         {
             var tweets = await _twitterService.GetTweetsByHashtagAsync(hashtag);
             var newTweets = tweets.Take(10).Select(t => new
