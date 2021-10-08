@@ -7,11 +7,11 @@
         public string name { get; set; }
         public string description { get; set; }
         public int teams_count { get; set; }
-        public Links links { get; set; }
+        public Links2 links { get; set; }
         public Position[] positions { get; set; }
     }
 
-    public class Links
+    public class Links2
     {
         public Github[] github { get; set; }
         public Linkedin[] linkedin { get; set; }
