@@ -1,4 +1,5 @@
 using CodeCrunch.Services;
+using CodeCrunch.Services.CoinPaprika;
 using CodeCrunch.Services.NASA;
 using CodeCrunch.Services.OpenWeather;
 
@@ -14,6 +15,7 @@ builder.Services.AddSwaggerGen(c =>
 builder.Services.AddSingleton<ITwitterService, TwitterService>();
 builder.Services.AddSingleton<INASAService, NASAService>();
 builder.Services.AddSingleton<IOpenWeatherService, OpenWeatherService>();
+builder.Services.AddSingleton<ICoinPaprikaService, CoinPaprikaService>();
 builder.Services.AddHttpClient();
 var app = builder.Build();
 

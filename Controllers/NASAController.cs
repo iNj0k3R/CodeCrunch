@@ -32,7 +32,7 @@ namespace CodeCrunch.Controllers
             }
             catch (HttpRequestException ex)
             {
-                return StatusCode((int)ex.StatusCode,
+                return StatusCode((int)ex.StatusCode,       
                     new
                     {
                         status = (int)ex.StatusCode,
