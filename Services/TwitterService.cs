@@ -39,9 +39,15 @@ namespace CodeCrunch.Services
             return _userClient.Search.SearchTweetsAsync(new SearchTweetsParameters($"#{hashtag}") { PageSize = 50 });
         }
 
-        public Task<ITweet[]> GetTweetsByLocationAsync(string hashtag)
+        public Task<ITweet[]> GetTweetsByLocationAsync(float latitude, float longitude, string radius)
         {
-            throw new NotImplementedException();
+            Double rad = Double.Parse(radius[0..^2]);
+            DistanceMeasure distanceMeasure = radius[^2..] == "km" ? DistanceMeasure.Kilometers : DistanceMeasure.Miles;
+            return _userClient.Search.SearchTweetsAsync(new SearchTweetsParameters("")
+            {
+                PageSize = 50,
+                GeoCode = new GeoCode(latitude, longitude, rad, distanceMeasure)
+            });
         }
     }
 }

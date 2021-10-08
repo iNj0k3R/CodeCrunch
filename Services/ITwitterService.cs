@@ -9,7 +9,7 @@ namespace CodeCrunch.Services
         Task<ITweet[]> GetTweetsByUserAsync(IUser user);
         Task<IUser> GetUserInfoAsync(string username);
         Task<ITweet[]> GetTweetsByHashtagAsync(string hashtag);
-        Task<ITweet[]> GetTweetsByLocationAsync(string hashtag);
+        Task<ITweet[]> GetTweetsByLocationAsync(float latitude, float longitude, string radius);
 
     }
 }

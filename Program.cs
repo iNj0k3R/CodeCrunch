@@ -1,5 +1,6 @@
 using CodeCrunch.Services;
 using CodeCrunch.Services.NASA;
+using CodeCrunch.Services.OpenWeather;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +13,7 @@ builder.Services.AddSwaggerGen(c =>
 });
 builder.Services.AddSingleton<ITwitterService, TwitterService>();
 builder.Services.AddSingleton<INASAService, NASAService>();
+builder.Services.AddSingleton<IOpenWeatherService, OpenWeatherService>();
 builder.Services.AddHttpClient();
 var app = builder.Build();
 

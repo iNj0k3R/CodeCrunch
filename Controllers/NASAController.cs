@@ -38,8 +38,7 @@ namespace CodeCrunch.Controllers
                         status = (int)ex.StatusCode,
                         message = "image/video not found"
                     });
-            }          
-            
+            }                    
         }
         [HttpGet("images-of-month/{year}/{month}")]
         public async Task<IActionResult> ImagesOfMonthAsync(string year, string month)
@@ -53,7 +52,6 @@ namespace CodeCrunch.Controllers
             catch (FormatException ex)
             {
                 return BadRequest();
-       
             }
             catch (HttpRequestException ex)
             {
